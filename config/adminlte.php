@@ -228,7 +228,7 @@ return [
         // Navbar items:
         [
             'type'         => 'navbar-search',
-            'text'         => 'search',
+            'search'         => true,
             'topnav_right' => true,
         ],
         [
@@ -250,28 +250,39 @@ return [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
+            'can'  => 'admin.home',
             
         ],
-        ['header' => 'Administrador'],
+        ['header' => 'FaCiCo UAEMEX'],
         [
             'text' => 'Tipos',
             'route'  => 'admin.tipos.index',
             'icon' => 'fab fa-fw fa-buffer',
+            'can'  => 'admin.tipos.index',
         ],
         [
             'text' => 'Numeros',
             'route'  => 'admin.numeros.index',
             'icon' => 'fa fa-list-ol',
+            'can'  => 'admin.numeros.index',
         ],
         [
             'text' => 'Licenciaturas',
             'route'  => 'admin.licenciaturas.index',
             'icon' => 'fa fa-graduation-cap',
+            'can'  => 'admin.licenciaturas.index',
         ],
         [
             'text' => 'Insumos',
             'route'  => 'admin.insumos.index',
             'icon' => 'fa fa-computer-ol',
+            
+        ],
+        [
+            'text' => 'Graficos',
+            'route'  => 'admin.charts.index',
+            'icon' => 'fa fa-computer-ol',
+            
         ],
         
         

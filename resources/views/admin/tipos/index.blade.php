@@ -37,6 +37,12 @@
                         <a class="btn btn-primary btn-sm" href="{{route('admin.tipos.edit', $tipo)}}">Editar</a>
                     </td>
                     <td width="10px">
+                    
+                        <a class="btn btn-primary btn-sm" href="{{route('admin.tipos.show', $tipo)}}">Ver</a>
+                       
+                    </td>
+                  
+                    <td width="10px">
                         <form action="{{route('admin.tipos.destroy', $tipo)}}" method="POST">
                             @csrf
                             @method('delete')

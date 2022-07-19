@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use App\Models\Tipo;
 class TipoController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.tipos.index');
+    }
     /**
      * Display a listing of the resource.
      *

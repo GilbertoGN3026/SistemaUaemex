@@ -13,6 +13,13 @@ use App\Models\Licenciatura;
 
 class InsumoController extends Controller
 {
+    public function __construct()
+    {
+        
+        $this->middleware('can:admin.insumos.edit')->only('edit','update');
+        
+
+    }
     /**
      * Display a listing of the resource.
      *

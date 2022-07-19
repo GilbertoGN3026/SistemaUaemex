@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class LicenciaturaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:admin.licenciaturas.index');
+    }
     /**
      * Display a listing of the resource.
      *

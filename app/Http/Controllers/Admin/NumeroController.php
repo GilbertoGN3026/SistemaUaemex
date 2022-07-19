@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class NumeroController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:admin.numeros.index');
+    }
     /**
      * Display a listing of the resource.
      *
