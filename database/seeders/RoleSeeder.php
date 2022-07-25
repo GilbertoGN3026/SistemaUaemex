@@ -43,6 +43,8 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.insumos.show'])->assignRole([$role1]);
         Permission::create(['name'=>'admin.insumos.destroy'])->assignRole($role1);
 
+        Permission::create(['name'=>'admin.charts.index'])->assignRole([$role1]);
+
        
     }
 }

@@ -246,14 +246,15 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
+        ['header' => 'FaCiCo UAEMEX'],
         [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
             'icon'        => 'fas fa-tachometer-alt fa-fw',
-            'can'  => 'admin.home',
+            
             
         ],
-        ['header' => 'FaCiCo UAEMEX'],
+        
         [
             'text' => 'Tipos',
             'route'  => 'admin.tipos.index',
@@ -281,9 +282,37 @@ return [
         [
             'text' => 'Graficos',
             'route'  => 'admin.charts.index',
+            'icon' => 'fa fa-chart-column',
+            'can'  => 'admin.charts.index',
+            
+            ],
+        [
+            
+            'route'  => 'admin.reportes.reportes_fecha',
             'icon' => 'fa fa-computer-ol',
             
+            
         ],
+
+        [
+            'text' => 'Reportes',
+            
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Reportes por dia',
+                    'route'  => 'admin.reportes.reporte_dia',
+                    
+                ],
+                [
+                    'text' => 'Reportes por fecha',
+                    'route'  => 'admin.reportes.reportes_fecha',
+                    
+                ],
+
+            ]
+        ]
+        
         
         
     ],

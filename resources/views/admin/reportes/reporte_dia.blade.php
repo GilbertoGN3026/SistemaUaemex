@@ -6,7 +6,7 @@
  
  <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.insumos.create')}}">Solicitar Insumo</a>
  
-<h1>Listado de Solicitantes de Insumos</h1>
+<h1>Reporte de Insumos</h1>
 
 @stop
 
@@ -14,7 +14,26 @@
  <div class="card">
 
     <div class="card-body">
+        
         <table width="900px" class="table table-striped" >
+
+        <div class="row">
+            <div class="col-12 col-md-4 text-center">
+                <span>Fecha de Consulta: <b> </b> </span>
+            <div class="form-group">
+                    <strong>{{\Carbon\Carbon::now()->format('d/m/Y')}}</strong>
+                </div>
+            </div>
+        
+         
+            <div class="col-12 col-md-4 text-center">
+                <span>Cantidad de Registros: <b> </b> </span>
+            <div class="form-group">
+                    <strong>{{$insumos->count()}}</strong>
+                </div>
+            </div>
+       
+
             <thead>
                 <tr>
                     <th>ID</th>

@@ -4,9 +4,9 @@
 @section('content_header')
 
  
- <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.insumos.create')}}">Solicitar Insumo</a>
+
  
-<h1>Listado de Solicitantes de Insumos</h1>
+<h1>Reporte de Insumos</h1>
 
 @stop
 
@@ -14,7 +14,41 @@
  <div class="card">
 
     <div class="card-body">
+        
+        {!! Form::open(['route' => 'admin.reportes.reportes_res','method' =>'POST']) !!}
+        <div class="row">
+
+            <div class="col-12 col-md-3">
+                <span>Fecha inicial</span>
+            <div class="form-group">
+                   <input class="form-control" type="date" 
+                   value="{{old('fecha_ini')}}" 
+                   name="fecha_ini" id="fecha_ini"></input>
+                </div>
+            </div>
+             <div class="col-12 col-md-3">
+                <span>Fecha final</span>
+            <div class="form-group">
+                   <input class="form-control" type="date" 
+                   value="{{old('fecha_fin')}}" 
+                   name="fecha_fin" id="fecha_fin"></input>
+                </div>
+            </div>
+
+            
+         
+            <div class="col-12 col-md-3 text-center mt-4">
+                
+            <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-sm">Consultar</button>
+                </div>
+            </div>
+       
+            {!! Form::close() !!}
         <table width="900px" class="table table-striped" >
+
+         
+
             <thead>
                 <tr>
                     <th>ID</th>
@@ -49,31 +83,9 @@
                     <td>{{$insumo->numero->numero}}</td>
                     <td>{{$insumo->fecha_horaSol}}</td>
                     <td>{{$insumo->fecha_horaEnt}}</td>
-                  
-                    
-                    
+              
 
-                    <td width="3px">
-                    @can('admin.insumos.edit')
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.edit', $insumo)}}">Editar</a>
-                        @endcan
-                    </td>
-                     <td width="3px">
-                     
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.show', $insumo)}}">Ver</a>
-                       
-                    </td>
                     
-                    
-                    <td width="3px">
-                    @can('admin.insumos.destroy')
-                        <form action="{{route('admin.insumos.destroy', $insumo)}}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
-                        @endcan
-                    </td>
                 </tr>
 
                 @endforeach
@@ -82,4 +94,26 @@
     </div>
 </div>
 
+
+
+
 @stop
+
+@section('scripts')
+{!!Html::script('melody/js/data-table.js') !!}
+<script>
+    window.onload = function(){
+     var fecha = new Date();
+     var mes = fecha.getMonth()+1;
+     var dia = fecha.getDate();
+     var ano = fecha.getFullyear();
+    if(dia<10)
+      dia='0'+dia;
+      if(mes<10)
+      mes='0'+mes
+      document.getElementById('fecha_fin').value=ano+"-"+mes+"-"+dia;
+
+}
+</script>
+
+@endsection

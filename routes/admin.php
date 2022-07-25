@@ -8,11 +8,18 @@ use App\Http\Controllers\Admin\LicenciaturaController;
 use App\Http\Controllers\Admin\TipoController;
 use App\Http\Controllers\Admin\NumeroController;
 use App\Http\Controllers\Admin\ChartController;
+use App\Http\Controllers\Admin\ReporteController;
+
 
 Route::get('',[HomeController::class,'index'])->name('admin.home');
+Route::get('reportes/reporte_dia',[ReporteController::class,'reporte_dia'])->name('admin.reportes.reporte_dia');
+Route::get('reportes/reportes_fecha',[ReporteController::class,'reportes_fecha'])->name('admin.reportes.reportes_fecha');
+Route::post('reportes/reportes_res',[ReporteController::class,'reportes_res'])->name('admin.reportes.reportes_res');
+
 
 Route::resource('tipos', TipoController::class)->names('admin.tipos');
 Route::resource('numeros', NumeroController::class)->names('admin.numeros');
 Route::resource('licenciaturas', LicenciaturaController::class)->names('admin.licenciaturas');
 Route::resource('insumos', InsumoController::class)->names('admin.insumos');
 Route::resource('charts',ChartController::class)->names('admin.charts');
+Route::resource('reportes',ReporteController::class)->names('admin.reportes');
