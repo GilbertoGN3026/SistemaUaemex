@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $tipo_id
  * @property $numero_id
  * @property $licenciatura_id
+ * @property $conformidad
  * @property $created_at
  * @property $updated_at
  *
@@ -40,6 +41,7 @@ class Insumo extends Model
 		'numero_id' => 'required',
         'fecha_horaSol' => 'required',
         'fecha_horaEnt' => 'required',
+        'conformidad' => 'required',
 		
 		
     ];
@@ -51,7 +53,7 @@ class Insumo extends Model
      *
      * @var array
      */
-    protected $fillable = ['user_nombre','numero_cuenta','aula','telefono','profesor','licenciatura_id','tipo_id','numero_id','fecha_horaSol','fecha_horaEnt'];
+    protected $fillable = ['user_nombre','numero_cuenta','aula','telefono','profesor','licenciatura_id','tipo_id','numero_id','fecha_horaSol','fecha_horaEnt','conformidad'];
 
 
     /**

@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('profesor');
             $table->dateTimeTz('fecha_horaSol');
             $table->dateTimeTz('fecha_horaEnt');
-
+            $table->enum('conformidad', ['Aceptado']);
             //llave foranea del tipo de insumo
             $table->bigInteger('tipo_id')->unsigned();
             $table->foreign('tipo_id')->references('id')->on('tipos')->onDelete("cascade");

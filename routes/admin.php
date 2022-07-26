@@ -15,6 +15,10 @@ Route::get('',[HomeController::class,'index'])->name('admin.home');
 Route::get('reportes/reporte_dia',[ReporteController::class,'reporte_dia'])->name('admin.reportes.reporte_dia');
 Route::get('reportes/reportes_fecha',[ReporteController::class,'reportes_fecha'])->name('admin.reportes.reportes_fecha');
 Route::post('reportes/reportes_res',[ReporteController::class,'reportes_res'])->name('admin.reportes.reportes_res');
+//rutas para exportar a pdf
+
+Route::get('reportes/pdf_dia',[InsumoController::class,'pdf_dia'])->name('admin.insumos.pdf_dia');
+Route::get('reportes/pdf_fecha',[InsumoController::class,'pdf_fecha'])->name('admin.insumos.pdf_fecha');
 
 
 Route::resource('tipos', TipoController::class)->names('admin.tipos');

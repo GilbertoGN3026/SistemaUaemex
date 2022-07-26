@@ -4,9 +4,9 @@
 @section('content_header')
 
  
-
+<a class="btn btn-secondary btn-sm float-right" href="{{route('admin.insumos.pdf_fecha')}}">Exportar a PDF</a>
  
-<h1>Reporte de Insumos</h1>
+<h1>Reporte de insumos por fecha</h1>
 
 @stop
 
@@ -62,6 +62,7 @@
                     <th>Numero</th>
                     <th>Fecha y Hora de Solicitud</th>
                     <th>Fecha y Hora de Entrega</th>
+                    <th>Conformidad</th>
                     
                     
                     <th colspan="2"></th>
@@ -83,6 +84,7 @@
                     <td>{{$insumo->numero->numero}}</td>
                     <td>{{$insumo->fecha_horaSol}}</td>
                     <td>{{$insumo->fecha_horaEnt}}</td>
+                     <td>{{$insumo->conformidad}}</td>
               
 
                     

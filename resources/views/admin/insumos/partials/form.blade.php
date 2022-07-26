@@ -54,7 +54,19 @@
             {!! $errors->first('fecha_horaEnt', '<div class="invalid-feedback">:message</div>') !!}
 
         </div>
-        
-    </div>
-   
+         <div class="row md-3">
+                            <label for="sexo" class="col-md-4 col-form-label text-md-end">{{ __('Conformidad') }}</label>
+                            <div class="row md-3">
+                                <div class="col"></div>
+                                <div class="col col-md-2">
+                                    <input class="form-check-input" type="radio" name="conformidad" id="conformidad1" value="Aceptado">
+                                    <label class="form-check-label" for="conformidad1">
+                                        Conformidad
+                                    </label>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+       
 </div>

@@ -58,6 +58,10 @@
                             <strong>Fecha y Hora de Entrega:</strong>
                             {{ $insumo->fecha_horaEnt }}
                         </div>
+                          <div class="form-group">
+                            <strong>Conformidad</strong>
+                            {{ $insumo->conformidad}}
+                        </div>
 
                     </div>
                 </div>

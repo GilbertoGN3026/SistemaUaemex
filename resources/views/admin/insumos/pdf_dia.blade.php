@@ -1,20 +1,23 @@
-@extends('adminlte::page')
-@section('title', 'Dashboard')
-
-@section('content_header')
-
  
- <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.insumos.create')}}">Solicitar Insumo</a>
- 
-<h1>Listado de Solicitantes de Insumos</h1>
-
-@stop
-
-@section('content')
- <div class="card">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+  
+     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-sacale=1.0"
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+     <link rel="stylesheet" type="text/css" href="{{ public_path('css/app.css') }}">
+  </head>
+  <body>
+  <h1>Reporte de insumos por dia</h1>
+   <div class="card">
 
     <div class="card-body">
+        
         <table width="900px" class="table table-striped" >
+
+
             <thead>
                 <tr>
                     <th>ID</th>
@@ -29,7 +32,6 @@
                     <th>Fecha y Hora de Solicitud</th>
                     <th>Fecha y Hora de Entrega</th>
                     <th>Conformidad</th>
-                    
                     
                     <th colspan="2"></th>
                     <th></th>
@@ -55,27 +57,7 @@
                     
                     
 
-                    <td width="3px">
-                    @can('admin.insumos.edit')
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.edit', $insumo)}}">Editar</a>
-                        @endcan
-                    </td>
-                     <td width="3px">
-                     
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.show', $insumo)}}">Ver</a>
-                       
-                    </td>
-                    
-                    
-                    <td width="3px">
-                    @can('admin.insumos.destroy')
-                        <form action="{{route('admin.insumos.destroy', $insumo)}}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
-                        @endcan
-                    </td>
+                  
                 </tr>
 
                 @endforeach
@@ -83,5 +65,8 @@
         </table>
     </div>
 </div>
-
-@stop
+  </body>
+</html>
+ 
+ 
+ 
