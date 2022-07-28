@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\ComputoController;
+use App\Http\Controllers\Admin\VinsumoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,9 +14,17 @@ use App\Http\Controllers\Admin\ComputoController;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('vinsumo',[VinsumoController::class,'vinsumo'])->name('vinsumo');*/
+
+Route::get('',[ComputoController::class,'index'])->name('computos');
+Route::resource('computos',ComputoController::class)->names('computos');
+
+/*Route::get('/', function () {
+    return view('vinsumo');
+});*/
+/*Route::get('/', function () {
     return view('admin.computos.index');
-});
+});*/
 
 
 Route::middleware([

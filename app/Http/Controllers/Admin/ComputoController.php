@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Computo;
 use App\Models\Servicio;
 use App\models\Usuar;
+use App\models\Licenciatura;
+
 
 
 class ComputoController extends Controller
@@ -19,7 +21,7 @@ class ComputoController extends Controller
     public function index()
     {
         $computos=Computo::all();
-        return view('admin.computos.index',compact('computos'));
+        return view('computos.index',compact('computos'));
     }
 
     /**
@@ -31,9 +33,10 @@ class ComputoController extends Controller
     {
         $computo= new Computo();
         $servicios= Servicio::pluck('nombre_servicio','id');
+        $licenciaturas= Licenciatura::pluck('nombre_licenciatura','id');
         $usuarios= Usuar::pluck('tipo_usuario','id');
-       
-        return view('admin.computos.create',compact('computo','tipos','numeros'));
+        
+        return view('computos.create',compact('computo','servicios','licenciaturas','usuarios'));
     }
 
     /**
@@ -46,7 +49,8 @@ class ComputoController extends Controller
     {
         request()->validate(Computo::$rules);
         $computo=Computo::create($request->all());
-        return redirect()->route('admin.computos.index',$computo)->with('success', 'El insumo se creo con exito.');
+        
+        return redirect()->route('computos.create',$computo)->with('success', 'El insumo se creo con exito.');
     }
 
     /**
@@ -55,9 +59,9 @@ class ComputoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Computo $computo)
     {
-        //
+        return view('computos.show', compact('computo'));
     }
 
     /**
@@ -70,10 +74,10 @@ class ComputoController extends Controller
     {
         $computo = Computo::find($id);
         $servicios= Servicio::pluck('nombre_servicio','id');
-        $usuarios= Usuar::pluck('numero','id');
-       
+        $usuarios= Usuar::pluck('tipo_usuario','id');
+        $licenciaturas= Licenciatura::pluck('nombre_licenciatura','id');
 
-        return view('admin.computos.edit', compact('computo','servicios','usuarios'));
+        return view('computos.edit', compact('computo','servicios','licenciaturas','usuarios'));
     }
 
     /**
@@ -89,7 +93,7 @@ class ComputoController extends Controller
 
         $computo->update($request->all());
 
-        return redirect()->route('admin.computos.index',$computo)
+        return redirect()->route('computos.index',$computo)
             ->with('success', 'Numero updated successfully');
     }
 
@@ -102,7 +106,7 @@ class ComputoController extends Controller
     public function destroy(Computo $computo)
     {
         $computo->delete();
-        return redirect()->route('admin.computos.index')
+        return redirect()->route('computos.index')
         ->with('success', 'El tipo se elimino con exito');;
     }
 }

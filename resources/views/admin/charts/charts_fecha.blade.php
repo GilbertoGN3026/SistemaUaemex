@@ -12,7 +12,36 @@
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 
+ {!! Form::open(['route' => 'admin.charts.charts_res','method' =>'POST']) !!}
+        <div class="row">
 
+            <div class="col-12 col-md-3">
+                <span>Fecha inicial</span>
+            <div class="form-group">
+                   <input class="form-control" type="date" 
+                   value="{{old('fecha_ini')}}" 
+                   name="fecha_ini" id="fecha_ini"></input>
+                </div>
+            </div>
+             <div class="col-12 col-md-3">
+                <span>Fecha final</span>
+            <div class="form-group">
+                   <input class="form-control" type="date" 
+                   value="{{old('fecha_fin')}}" 
+                   name="fecha_fin" id="fecha_fin"></input>
+                </div>
+            </div>
+
+            
+         
+            <div class="col-12 col-md-3 text-center mt-4">
+                
+            <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-sm">Consultar</button>
+                </div>
+            </div>
+       
+            {!! Form::close() !!}
 
 <figure class="highcharts-figure">
   <div id="container"></div>

@@ -11,6 +11,7 @@
 @stop
 
 @section('content')
+@can('admin.insumos.index')
  <div class="card">
 
     <div class="card-body">
@@ -83,5 +84,6 @@
         </table>
     </div>
 </div>
+ @endcan
 
 @stop

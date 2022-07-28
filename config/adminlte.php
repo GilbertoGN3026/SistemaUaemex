@@ -261,6 +261,7 @@ return [
             'icon' => 'fab fa-fw fa-buffer',
             'can'  => 'admin.tipos.index',
         ],
+        
         [
             'text' => 'Numeros',
             'route'  => 'admin.numeros.index',
@@ -280,12 +281,20 @@ return [
             
         ],
         [
-            'text' => 'Graficos',
+            'text' => 'Graficos de Insumos',
             'route'  => 'admin.charts.index',
             'icon' => 'fa fa-chart-column',
             'can'  => 'admin.charts.index',
             
-            ],
+        ],
+        [
+            'text' => 'Graficos de Equipos ',
+            'route'  => 'admin.charts_computo.indexcom',
+            'icon' => 'fa fa-chart-column',
+            
+                
+        ],
+        
         [
             
             'route'  => 'admin.reportes.reportes_fecha',
@@ -311,8 +320,26 @@ return [
                 ],
 
             ]
-        ]
+            ],
         
+      /*  [
+            'text' => 'Reportes Equipos de Computo',
+            
+            'icon'    => 'fas fa-fw fa-share',
+            'submenu' => [
+                [
+                    'text' => 'Reportes por dia',
+                    'route'  => 'admin.reportes.reporte_dia',
+                    
+                ],
+                [
+                    'text' => 'Reportes por fecha',
+                    'route'  => 'admin.reportes.reportes_fecha',
+                    
+                ],
+
+            ]
+        ]*/
         
         
     ],

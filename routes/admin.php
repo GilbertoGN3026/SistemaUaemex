@@ -15,6 +15,12 @@ Route::get('',[HomeController::class,'index'])->name('admin.home');
 Route::get('reportes/reporte_dia',[ReporteController::class,'reporte_dia'])->name('admin.reportes.reporte_dia');
 Route::get('reportes/reportes_fecha',[ReporteController::class,'reportes_fecha'])->name('admin.reportes.reportes_fecha');
 Route::post('reportes/reportes_res',[ReporteController::class,'reportes_res'])->name('admin.reportes.reportes_res');
+
+
+
+//graficas de equipos de computo
+Route::get('charts/indexcom',[ChartController::class,'indexcom'])->name('admin.charts_computo.indexcom');
+
 //rutas para exportar a pdf
 
 Route::get('reportes/pdf_dia',[InsumoController::class,'pdf_dia'])->name('admin.insumos.pdf_dia');
