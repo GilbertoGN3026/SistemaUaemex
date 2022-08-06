@@ -44,6 +44,17 @@ class RoleSeeder extends Seeder
         Permission::create(['name'=>'admin.insumos.destroy'])->assignRole($role1);
 
         Permission::create(['name'=>'admin.charts.index'])->assignRole([$role1]);
+        Permission::create(['name'=>'computos.index'])->assignRole([$role1]);
+        Permission::create(['name'=>'computos.index2'])->assignRole([$role1]);
+        Permission::create(['name'=>'admin.reportes.reporte_dia'])->assignRole([$role1]);
+        Permission::create(['name'=>'admin.reportes.reportes_fecha'])->assignRole([$role1]);
+        
+        Permission::create(['name'=>'admin.reportes.reporteC_dia'])->assignRole([$role1]);
+        Permission::create(['name'=>'admin.reportes.reportesC_fecha'])->assignRole([$role1]);
+
+        
+
+        
 
        
     }

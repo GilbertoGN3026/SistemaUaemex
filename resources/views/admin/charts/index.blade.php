@@ -16,12 +16,7 @@
 
 <figure class="highcharts-figure">
   <div id="container"></div>
-  <p class="highcharts-description">
-    Chart showing how an HTML table can be used as the data source for the
-    chart using the Highcharts data module. The chart is built by
-    referencing the existing HTML data table in the page. Several common
-    data source types are available, including CSV and Google Spreadsheet.
-  </p>
+ 
   </figure>
 <script>
 var datas = <?php echo json_encode($datas)?>;
@@ -30,14 +25,14 @@ var datas = <?php echo json_encode($datas)?>;
     type: 'column'
   },
         title: {
-            text: 'Nuenos registros de insumos'
+            text: 'Registros de solicitantes por mes'
         },
         subtitle: {
-            text: 'Insumos'
+            text: ''
         },
         xAxis: {
-            categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                'October', 'November', 'December'
+            categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
+                'Octubre', 'Noviembre', 'Diciembre'
             ]
         },
         yAxis: {
@@ -56,7 +51,7 @@ var datas = <?php echo json_encode($datas)?>;
             }
         },
         series: [{
-            name: 'Registros de insumos',
+            name: 'Registros de solicitantes por mes',
             data: datas
         }],
         responsive: {
@@ -81,12 +76,7 @@ var datas = <?php echo json_encode($datas)?>;
 
 <figure class="highcharts-figure">
   <div id="container2"></div>
-  <p class="highcharts-description">
-    Chart showing how an HTML table can be used as the data source for the
-    chart using the Highcharts data module. The chart is built by
-    referencing the existing HTML data table in the page. Several common
-    data source types are available, including CSV and Google Spreadsheet.
-  </p>
+ 
   </figure>
 <script>
 var insu2 = <?php echo json_encode($insu2)?>;
@@ -95,18 +85,18 @@ var insu2 = <?php echo json_encode($insu2)?>;
     type: 'column'
   },
         title: {
-            text: 'Nuenos registros de insumos'
+            text: 'Licenciaturas'
         },
         subtitle: {
-            text: 'Insumos'
+            text: 'Registro de los solicitantes de insumos por carrera'
         },
         xAxis: {
-            categories: ['Psicologia', 'Trabajo social', 'Cultura fisica y deporte'
+            categories: ['Psicología','Educación','Trabajo social','Cultura Física y Deporte','Otros',
             ]
         },
         yAxis: {
             title: {
-                text: 'Numero de insumos'
+                text: 'Numero de solicitantes'
             }
         },
         legend: {
@@ -120,7 +110,7 @@ var insu2 = <?php echo json_encode($insu2)?>;
             }
         },
         series: [{
-            name: 'Registros de insumos carrera de pisoclogia',
+            name: 'Solicitantes por Carrera',
              colorByPoint: true,
             data: insu2
             
@@ -145,67 +135,51 @@ var insu2 = <?php echo json_encode($insu2)?>;
 
 <figure class="highcharts-figure">
   <div id="container3"></div>
-  <p class="highcharts-description">
-    Chart showing how an HTML table can be used as the data source for the
-    chart using the Highcharts data module. The chart is built by
-    referencing the existing HTML data table in the page. Several common
-    data source types are available, including CSV and Google Spreadsheet.
-  </p>
+ 
   </figure>
 <script>
 var insu3 = <?php echo json_encode($insu3)?>;
- Highcharts.chart('container3', {
-  chart: {
-    type: 'area',
-    inverted: true
+  Highcharts.chart('container3', {
+    chart: {
+    type: 'column'
   },
-  title: {
-    text: 'Average fruit consumption during one week'
-  },
-  accessibility: {
-    keyboardNavigation: {
-      seriesNavigation: {
-        mode: 'serialize'
-      }
-    }
-  },
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'top',
-    x: -150,
-    y: 100,
-    floating: true,
-    borderWidth: 1,
-    backgroundColor:
-      Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
-  },
-  xAxis: {
-    categories: [
-      'Cable HDMI',
-      'Proyectores',
-      'Cable VGA',
-      'Bocinas',
-
-    ]
-  },
-  yAxis: {
-    title: {
-      text: 'Number of units'
-    },
-    allowDecimals: false,
-    min: 0
-  },
-  plotOptions: {
-    area: {
-      fillOpacity: 0.5
-    }
-  },
+        title: {
+            text: 'Tipos de insumos'
+        },
+        subtitle: {
+            text: 'Registro de los solicitantes de insumos por tipo'
+        },
+        xAxis: {
+            categories: ['Bocinas',		
+	                        'Cable HDMI',		
+                          'Cable VGA',	
+                          'Cañon',
+                          'Control',	
+                          'Convertidor',	
+                          'Extensión',
+                          'Mimio',
+                          'Otro',
+                        ]
+        },
+        yAxis: {
+            title: {
+                text: 'Numero de solicitantes'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true
+            }
+        },
         series: [{
-            name: 'Numero de insumos usados por tipo',
+            name: 'Solicitantes por Carrera',
              colorByPoint: true,
             data: insu3
-           
             
         }],
         responsive: {
@@ -224,51 +198,8 @@ var insu3 = <?php echo json_encode($insu3)?>;
         }
     });
 
-</script>
-
-<figure class="highcharts-figure">
-  <div id="container4"></div>
-  <p class="highcharts-description">
-    Chart showing how an HTML table can be used as the data source for the
-    chart using the Highcharts data module. The chart is built by
-    referencing the existing HTML data table in the page. Several common
-    data source types are available, including CSV and Google Spreadsheet.
-  </p>
-  </figure>
-<script>
-var insu4 = <?php echo json_encode($insu4)?>;
- Highcharts.chart('container4', {
-
-  title: {
-    text: 'Logarithmic axis demo'
-  },
-
-  xAxis: {
-    tickInterval: 1,
-    type: 'logarithmic',
-    accessibility: {
-      rangeDescription: 'Range: 1 to 10'
-    }
-  },
-
-  yAxis: {
-    type: 'logarithmic',
-    minorTickInterval: 0.1,
-    accessibility: {
-      rangeDescription: 'Range: 0.1 to 1000'
-    }
-  },
-
-  tooltip: {
-    headerFormat: '<b>{series.name}</b><br />',
-    pointFormat: 'x = {point.x}, y = {point.y}'
-  },
-
-  series: [{
-    data: insu4
-  }]
-});
 
 </script>
+
 @stop
 

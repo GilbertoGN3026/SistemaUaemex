@@ -2,7 +2,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Editar tipos</h1>
+<h1>Editar tipo de insumo</h1>
 @stop
 
 @section('content')

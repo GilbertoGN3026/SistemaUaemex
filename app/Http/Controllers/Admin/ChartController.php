@@ -19,15 +19,15 @@ class ChartController extends Controller
 
     public function index (){
         $insu = Insumo::select (DB::raw("COUNT(*) as count"))
-        ->whereYear("created_at", date('Y'))
-        ->groupBy(DB::raw("Month(created_at)"))
+        ->whereYear("fecha_horaSol",now()->year)
+        ->groupBy(DB::raw("Month(fecha_horaSol)"))
         ->pluck('count');
 
         
 
-        $months = Insumo::select (DB::raw("Month(created_at) as month"))
-        ->whereYear("created_at", date('Y'))
-        ->groupBy(DB::raw("Month(created_at)"))
+        $months = Insumo::select (DB::raw("Month(fecha_horaSol) as month"))
+        ->whereYear("fecha_horaSol", date('Y'))
+        ->groupBy(DB::raw("Month(fecha_horaSol)"))
         ->pluck('month');
 
         
@@ -39,7 +39,7 @@ class ChartController extends Controller
         
 
         $insu2 = Insumo::select (DB::raw("COUNT(*) as count"))
-        ->whereBetween('licenciatura_id',([0,3]))
+        ->whereBetween('licenciatura_id',([0,10]))
         ->groupBy(DB::raw("licenciatura_id"))
         ->pluck('count');
 
@@ -98,23 +98,12 @@ class ChartController extends Controller
         ->whereBetween('usuar_id',([0,10]))
         ->groupBy(DB::raw("usuar_id"))
         ->pluck('count');
-        $months1 = Computo::select (DB::raw("Month(created_at) as month"))
-        ->whereYear("created_at", date('Y'))
-        ->groupBy(DB::raw("Month(created_at)"))
-        ->pluck('month');
-
-        
-        $datas1 = array(0,0,0,0,0,0,0,0,0,0,0,0);
-        foreach ($months1 as $index => $month)
-        {
-            $datas1[$month-1] = $comp4[$index];
-        }
+     
         return view('admin.charts_computo.indexcom')
         ->with('datas',$datas)
         ->with('comp2',$comp2)
         ->with('comp3',$comp3)
-        
-        ->with('datas1',$datas1);
+        ->with('comp4',$comp4);
     }
  
    

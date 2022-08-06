@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">  
 <head>    
-    <title>Título de la WEB</title>    
+    <title>Formulario Salas de Computo</title>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      
@@ -12,6 +12,27 @@
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         @livewireStyles
+        <style>
+         .imagen{
+          background: url("{{asset('img/computacion1.jpg')}}");
+          width:600px;
+          height:350px;
+          background-size:cover;
+          no-repeat;
+          align-items:center;
+          display:flex;
+          justify-content:center;
+           margin-left:auto;
+          margin-right:auto;
+          margin-top:10px;
+          
+          
+        }
+        .boton{
+          margin-left:20px;
+         
+        }
+        </style>
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>  
@@ -70,22 +91,38 @@
 </nav>
 
 
+<h1></h1>
+<h2></h2>
+
 
 <section class="d-flex justify-content-center">
-    <div class="card col-sm-6 p-3">
+    <div class="card col-sm-6 p-3" >
             <div class="mb-3">
-            <h1>UAEMEX</h1>
+            <h1  class="d-flex justify-content-center">Universidad Autonoma del Estado de Mexico FACICO {{\Carbon\Carbon::now()->year}}A </h1>
              </div>
-              <div class="mb-2">
-              
-<div class="card mb-3">
-  <img src="..." class="card-img-top" alt="...">
+              <div class="boton">
+
+                    
+  <button class="btn btn-primary btn-sm" href="{{route('computos.index')}}">
+ <i class="fa fa-arrow-left" ></i>atras
+  </button>
+             
+              </div>
+
+  <img class="imagen">
   <div class="card-body">
-    <h5 class="card-title">Uaemex</h5>
+    <h5 class="card-title"></h5>
     {!! Form::open(['route' => 'computos.store']) !!}
         @include('computos.partials.form')
-        {!! Form::submit('Registro Nuevo', ['class' => 'btn btn-primary']) !!}
+        <div class="row">
+        <div class="col">
+      {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
+    </div>
+    <div class="col">
+      C
+    </div>
+        
   </div>
 </div>
 

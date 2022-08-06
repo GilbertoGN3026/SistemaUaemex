@@ -23,5 +23,9 @@ class UsuarSeeder extends Seeder
             'tipo_usuario' => 'Administrativo',
            
         ]);
+        Usuar::create([
+            'tipo_usuario' => 'Externo',
+           
+        ]);
     }
 }

@@ -9,18 +9,35 @@
      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
      <link rel="stylesheet" type="text/css" href="{{ public_path('css/app.css') }}">
   </head>
+  
   <body>
-  <h1>Reporte de insumos por dia</h1>
+  <h1>Reporte de insumos por mes</h1>
    <div class="card">
 
     <div class="card-body">
         
+        <div class="row">
+           
+                <span>Fecha de Consulta: <b> </b> </span>
+            
+                    <strong>{{\Carbon\Carbon::now()->format('d/m/Y')}}</strong>
+                
+           
+        
+          <h1>Reporte de Enero-Junio {{\Carbon\Carbon::now()->year}} </h1>
+           
+                <span>Cantidad de Registros: <b> </b> </span>
+          
+                    <strong>{{$insumos->count()}}</strong>
+              </div>
+            
         <table width="900px" class="table table-striped" >
 
+         
 
             <thead>
                 <tr>
-                    <th>ID</th>
+                    
                     <th>Solicitante</th>
                     <th>Numero de Cuenta</th>
                     <th>Aula</th>
@@ -33,6 +50,7 @@
                     <th>Fecha y Hora de Entrega</th>
                     <th>Conformidad</th>
                     
+                    
                     <th colspan="2"></th>
                     <th></th>
 
@@ -41,7 +59,7 @@
             <tbody>
                 @foreach($insumos as $insumo)
                 <tr>
-                    <td>{{$insumo->id}}</td>
+                    
                     <td>{{$insumo->user_nombre}}</td>
                     <td>{{$insumo->numero_cuenta}}</td>
                     <td>{{$insumo->aula}}</td>
@@ -52,12 +70,10 @@
                     <td>{{$insumo->numero->numero}}</td>
                     <td>{{$insumo->fecha_horaSol}}</td>
                     <td>{{$insumo->fecha_horaEnt}}</td>
-                    <td>{{$insumo->conformidad}}</td>
-                  
-                    
-                    
+                     <td>{{$insumo->conformidad}}</td>
+              
 
-                  
+                    
                 </tr>
 
                 @endforeach
@@ -65,7 +81,11 @@
         </table>
     </div>
 </div>
+
+
   </body>
+
+
 </html>
  
  

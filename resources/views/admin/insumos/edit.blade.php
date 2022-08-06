@@ -16,7 +16,9 @@
     <div class="card-body">
     {!! Form::model($insumo,['route'=> ['admin.insumos.update', $insumo], 'method'=> 'put']) !!}
             @include('admin.insumos.partials.form')
-            {!! Form::submit('Actualizar Registro', ['class'=>'btn btn-primary']) !!}
+            <div>
+            {!! Form::submit('Actualizar Registro', ['class'=>'btn btn-primary', 'style' => 'margin-top:10px']) !!}
+            </div>
     {!! Form::close() !!}
  
     </div>

@@ -4,21 +4,47 @@
 @section('content_header')
 
  
- <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.insumos.create')}}">Solicitar Insumo</a>
- 
+ <a class="btn btn-primary btn-sm float-right" href="{{route('admin.insumos.create')}}">Solicitar Insumo</a>
+ @can('admin.insumos.index')
 <h1>Listado de Solicitantes de Insumos</h1>
-
+@endcan
 @stop
 
 @section('content')
+<!DOCTYPE html>
+<html lang="es">  
+<head>    
+    <title>Título de la WEB</title>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+    <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        @livewireStyles
+
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" defer></script>  
+        
+</head>  
+<body>
+@if(session('success'))
+<div class="alert alert-success">
+    <strong>{{session('success')}}</strong>
+    </div>
+@endif
+
 @can('admin.insumos.index')
  <div class="card">
-
+    
     <div class="card-body">
-        <table width="900px" class="table table-striped" >
-            <thead>
+            <div class="table-responsive">
+        <table class="table" >
+            <thead class= "thead-dark">
                 <tr>
-                    <th>ID</th>
                     <th>Solicitante</th>
                     <th>Numero de Cuenta</th>
                     <th>Aula</th>
@@ -30,8 +56,6 @@
                     <th>Fecha y Hora de Solicitud</th>
                     <th>Fecha y Hora de Entrega</th>
                     <th>Conformidad</th>
-                    
-                    
                     <th colspan="2"></th>
                     <th></th>
 
@@ -40,7 +64,6 @@
             <tbody>
                 @foreach($insumos as $insumo)
                 <tr>
-                    <td>{{$insumo->id}}</td>
                     <td>{{$insumo->user_nombre}}</td>
                     <td>{{$insumo->numero_cuenta}}</td>
                     <td>{{$insumo->aula}}</td>
@@ -58,12 +81,12 @@
 
                     <td width="3px">
                     @can('admin.insumos.edit')
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.edit', $insumo)}}">Editar</a>
+                        <a class="btn btn-success btn-sm" href="{{route('admin.insumos.edit', $insumo)}}">Editar</a>
                         @endcan
                     </td>
                      <td width="3px">
                      
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.show', $insumo)}}">Ver</a>
+                        <a class="btn btn-warning btn-sm" href="{{route('admin.insumos.show', $insumo)}}">Ver</a>
                        
                     </td>
                     
@@ -82,8 +105,11 @@
                 @endforeach
             </tbody>
         </table>
+       </div> 
     </div>
 </div>
+</body>
+</html>
  @endcan
 
 @stop

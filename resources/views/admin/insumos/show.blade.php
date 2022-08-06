@@ -2,28 +2,28 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-<h1>Sistema de prestamos</h1>
+<h1>Sistema de Captura Universitaria</h1>
 @stop
 
 @section('content')
 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Insumo</span>
+                            <span class="card-title">Detalles de registro </span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('admin.insumos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('admin.insumos.index') }}"> atras</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>User Nombre:</strong>
+                            <strong>Nombre Completo:</strong>
                             {{ $insumo->user_nombre }}
                         </div>
                         <div class="form-group">
-                            <strong>Numero Cuenta:</strong>
+                            <strong>Número de Cuenta:</strong>
                             {{ $insumo->numero_cuenta }}
                         </div>
                         <div class="form-group">
@@ -31,7 +31,7 @@
                             {{ $insumo->aula }}
                         </div>
                         <div class="form-group">
-                            <strong>Telefono:</strong>
+                            <strong>Teléfono:</strong>
                             {{ $insumo->telefono }}
                         </div>
                         <div class="form-group">
@@ -39,15 +39,15 @@
                             {{ $insumo->profesor }}
                         </div>
                         <div class="form-group">
-                            <strong>Licenciatura Id:</strong>
+                            <strong>Licenciatura:</strong>
                             {{ $insumo->licenciatura->nombre_licenciatura }}
                         </div>
                         <div class="form-group">
-                            <strong>Tipo Id:</strong>
+                            <strong>Tipo De Insumo:</strong>
                             {{ $insumo->tipo->nombre_insumo}}
                         </div>
                         <div class="form-group">
-                            <strong>Numero Id:</strong>
+                            <strong>Número De Insumo:</strong>
                             {{ $insumo->numero->numero }}
                         </div>
                         <div class="form-group">
@@ -59,7 +59,7 @@
                             {{ $insumo->fecha_horaEnt }}
                         </div>
                           <div class="form-group">
-                            <strong>Conformidad</strong>
+                            <strong>Conformidad:</strong>
                             {{ $insumo->conformidad}}
                         </div>
 

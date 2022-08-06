@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">  
 <head>    
-    <title>Título de la WEB</title>    
+    <title>Salas de computo</title>    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
      
@@ -10,15 +10,53 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" type="text/css" href="estilos.css">
+        <style>
+        .imagen{
+          background: url("{{asset('img/fondounoch.jpg')}}");
+         width:1348px;
+         height:800px;
+          background-size:cover;
+          no-repeat;
+          
+          
+          
+        }
+        .container{
+          margin-top:50px;
+        }
+        .imagen2{
+          background: url("{{asset('img/Welcome2.jpg')}}");
+         
+          height:220px;
+          background-size:cover;
+          no-repeat;
+        }
+         .card{
+          margin:1rem;
+          padding
+          align-items:center;
+          display:flex;
+          justify-content:center;
+          width:800px;
+          height:200px;
+          margin-left:auto;
+          margin-right:auto;
+        }
+     
+       
+        </style>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
         @livewireStyles
 
         <!-- Scripts -->
         <script src="{{ mix('js/app.js') }}" defer></script>  
-        
+       
+       
 </head>  
-<body>
-<!-- This example requires Tailwind CSS v2.0+ -->
+<body class="imagen">
+
+
 <nav class="bg-gray-800">
   <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
     <div class="relative flex items-center justify-between h-16">
@@ -79,60 +117,30 @@
        
   
 </nav>
- <a class="btn btn-secondary btn-sm" href="{{route('computos.create')}}">Solicitar Insumo</a>
 
+<h1></h1>
+
+<h1></h1>
+  
 <div class="card">
-
-    <div class="card-body">
-        <table width="900px" class="table table" >
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Solicitante</th>
-                    <th>Numero de Cuenta</th>
-                    <th>Tipo de servicio</th>
-                    <th>Numero de Equipo,Impreiones o Escaneos</th>
-                    <th>Licenciatura</th>
-                    <th>Usuario</th>
-                    <th>Sugerencia</th>
-                    <th colspan="2"></th>
-                    <th></th>
-
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($computos as $computo)
-                <tr>
-                    <td>{{$computo->id}}</td>
-                    <td>{{$computo->nombre_completo}}</td>
-                    <td>{{$computo->numero_cuenta}}</td>
-                    <td>{{$computo->servicio->nombre_servicio}}</td>
-                    <td>{{$computo->numero_eie}}</td>
-                    <td>{{$computo->licenciatura->nombre_licenciatura}}</td>
-                    <td>{{$computo->usuar->tipo_usuario}}</td>
-                    <td>{{$computo->sugerencias}}</td>
-                  
-                    
-                    
-
-                    <td width="3px">
-                    
-                        <a class="btn btn-primary btn-sm" href="{{route('computos.edit', $computo)}}">Editar</a>
-                        
-                    </td>
-                     <td width="3px">
-                     
-                        <a class="btn btn-primary btn-sm" href="{{route('computos.show', $computo)}}">Ver</a>
-                       
-                    </td>
-                    
-                </tr>
-
-                @endforeach
-            </tbody>
-        </table>
+  <div class="imagen2">
+  </div>
+  <div class="card-body">
+    <div class="row">
+    <div class="col">
+       <div class="text-center">
+            <a class="btn btn-primary btn-sm" href="{{route('computos.create')}}">Solicitar Equipo de Computo</a>
+        </div>
     </div>
+   
+  </div>
+  </div>
 </div>
+     
+ 
+
+
+
 
 </body>
 </html>

@@ -19,7 +19,7 @@ class NumeroController extends Controller
      */
     public function index()
     {   
-        $numeros=Numero::all();
+        $numeros=Numero::all()->sortBy('numero');
         return view('admin.numeros.index',compact('numeros'));
     }
 
@@ -45,7 +45,7 @@ class NumeroController extends Controller
         $numero = Numero::create($request->all());
 
         return redirect()->route('admin.numeros.index',$numero)
-        ->with('success', 'El insumo se creo con exito.');
+        ->with('success', 'El Numero se creo con exito.');
     }
 
     /**
@@ -84,7 +84,7 @@ class NumeroController extends Controller
         $numero->update($request->all());
 
         return redirect()->route('admin.numeros.index',$numero)
-            ->with('success', 'Numero updated successfully');
+            ->with('success', 'El numero se actualizo con exito');
     }
 
     /**
@@ -93,8 +93,10 @@ class NumeroController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($numero)
+    public function destroy(Numero $numero)
     {
-        //
+        $numero->delete();
+        return redirect()->route('admin.numeros.index')
+        ->with('success', 'El Numero se elimino con exito');
     }
 }

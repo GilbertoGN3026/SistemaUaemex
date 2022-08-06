@@ -32,22 +32,7 @@ class InsumoController extends Controller
         return view('admin.insumos.index',compact('insumos'));
 
     }
-    public function pdf_dia()
-    {
-        $insumos=Insumo::all();
-        $pdf = PDF::loadView('admin.insumos.pdf_dia',['insumos'=>$insumos])->setPaper('a3', 'landscape');;
-        return $pdf->stream();
-        return view('admin.insumos.pdf_dia',compact('insumos'));
-
-    }
-    public function pdf_fecha()
-    {
-        $insumos=Insumo::all();
-        $pdf = PDF::loadView('admin.insumos.pdf_fecha',['insumos'=>$insumos])->setPaper('a3', 'landscape');;
-        return $pdf->stream();
-        return view('admin.insumos.pdf_fecha',compact('insumos'));
-
-    }
+    
     
     
     /**
@@ -120,7 +105,7 @@ class InsumoController extends Controller
         $insumo->update($request->all());
 
         return redirect()->route('admin.insumos.index',$insumo)
-            ->with('success', 'Numero updated successfully');
+            ->with('success', 'Registro actualizado con exito.');
     }
 
     /**

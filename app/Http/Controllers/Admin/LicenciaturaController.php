@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Licenciatura;
 use Illuminate\Http\Request;
+use PharIo\Manifest\License;
 
 class LicenciaturaController extends Controller
 {
@@ -19,7 +20,7 @@ class LicenciaturaController extends Controller
      */
     public function index()
     {
-        $licenciaturas=Licenciatura::all();
+        $licenciaturas=Licenciatura::all()->sortBy('nombre_licenciatura');
         return view ('admin.licenciaturas.index', compact ('licenciaturas'));
     }
 
@@ -64,9 +65,9 @@ class LicenciaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($licenciatura)
+    public function edit(Licenciatura $licenciatura)
     {
-        //
+        return view('admin.licenciaturas.edit',compact('licenciatura'));
     }
 
     /**
@@ -76,9 +77,13 @@ class LicenciaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $licenciatura)
+    public function update(Request $request, Licenciatura $licenciatura)
     {
-        //
+        request()->validate(Licenciatura::$rules);
+
+        $licenciatura->update($request->all());
+        return redirect()->route('admin.licenciaturas.index',$licenciatura)
+        ->with('success', 'La licenciatura se actualizo con exito.');
     }
 
     /**
@@ -87,8 +92,10 @@ class LicenciaturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($licenciatura)
+    public function destroy(Licenciatura $licenciatura)
     {
-        //
+        $licenciatura->delete();
+        return redirect()->route('admin.licenciaturas.index')
+        ->with('success', 'La licenciatura se elimino con exito.');;
     }
 }

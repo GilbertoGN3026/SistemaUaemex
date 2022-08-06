@@ -18,7 +18,7 @@ class TipoController extends Controller
      */
     public function index()
     {   
-        $tipos= Tipo::all();
+        $tipos= Tipo::all()->sortBy('nombre_insumo');
         return view('admin.tipos.index',compact('tipos'));
     }
 
@@ -44,7 +44,7 @@ class TipoController extends Controller
         $tipo = Tipo::create($request->all());
 
         return redirect()->route('admin.tipos.index',$tipo)
-        ->with('success', 'El insumo se creo con exito.');
+        ->with('success', 'El Tipo se creo con exito.');
            
     }
 
@@ -82,7 +82,7 @@ class TipoController extends Controller
         request()->validate(Tipo::$rules);
 
         $tipo->update($request->all());
-        return redirect()->route('admin.tipos.edit',$tipo)
+        return redirect()->route('admin.tipos.index',$tipo)
         ->with('success', 'El tipo se actualizo con exito.');
     }
 

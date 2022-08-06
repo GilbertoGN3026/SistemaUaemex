@@ -15,8 +15,8 @@ return [
     */
 
     'title' => '',
-    'title_prefix' => '',
-    'title_postfix' => '| Sistema de prestamos',
+    'title_prefix' => 'SSC',
+    'title_postfix' => '| Sistema de Captura Universitaria',
 
     /*
     |--------------------------------------------------------------------------
@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Sistema  de </b>Prestamos',
+    'logo' => '<b>SCU</b>',
     'logo_img' => 'vendor/adminlte/dist/img/facico.jpg',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -246,7 +246,8 @@ return [
             'url'  => 'admin/blog',
             'can'  => 'manage-blog',
         ],
-        ['header' => 'FaCiCo UAEMEX'],
+        ['header' => 'Sistema de 
+        Captura Universitaria'],
         [
             'text'        => 'Dashboard',
             'route'         => 'admin.home',
@@ -277,23 +278,41 @@ return [
         [
             'text' => 'Insumos',
             'route'  => 'admin.insumos.index',
-            'icon' => 'fa fa-computer-ol',
+            'icon' => 'fa fa-plug',
             
         ],
         [
-            'text' => 'Graficos de Insumos',
-            'route'  => 'admin.charts.index',
-            'icon' => 'fa fa-chart-column',
+            'text' => 'Equipos de Computo, Impresiones y Escaneo',
+            'route'  => 'computos.index2',
+            'icon' => 'fa fa-desktop',
+            'can'  => 'computos.index2',
+        ],
+        [
+            'text' => 'Graficos',
+            'icon' => 'fa fa-chart-line',
             'can'  => 'admin.charts.index',
+            'submenu' => [
+                [
+                    'text' => 'Graficos de Insumos',
+                    'route'  => 'admin.charts.index',
+                    
+                ],
+                [
+                    'text' => 'Graficos de Equipos ',
+                    'route'  => 'admin.charts_computo.indexcom',
+                    
+                ],
+
+            ]
             
         ],
-        [
+       /* [
             'text' => 'Graficos de Equipos ',
             'route'  => 'admin.charts_computo.indexcom',
             'icon' => 'fa fa-chart-column',
             
                 
-        ],
+        ],*/
         
         [
             
@@ -304,42 +323,65 @@ return [
         ],
 
         [
-            'text' => 'Reportes',
+            'text' => 'Reportes de Insumos',
             
-            'icon'    => 'fas fa-fw fa-share',
+            'icon'    => 'fa fa-file',
+            'can'  => 'admin.reportes.reporte_dia',
             'submenu' => [
+                [
+                    'text' => 'Reporte todos los registros',
+                    'route'  => 'admin.reportes.reporte_allinsumos',
+                    
+                    
+                ],
                 [
                     'text' => 'Reportes por dia',
                     'route'  => 'admin.reportes.reporte_dia',
+                    
                     
                 ],
                 [
                     'text' => 'Reportes por fecha',
                     'route'  => 'admin.reportes.reportes_fecha',
+                    
+                ],
+                [
+                    'text' => 'Reportes por mes',
+                    'route'  => 'admin.reportes.meses',
                     
                 ],
 
             ]
             ],
         
-      /*  [
+            [
             'text' => 'Reportes Equipos de Computo',
-            
-            'icon'    => 'fas fa-fw fa-share',
+            'can'  => 'admin.reportes.reporteC_dia',
+            'icon'    => 'fa fa-file',
             'submenu' => [
                 [
+                    'text' => 'Reporte todos los registros',
+                    'route'  => 'admin.reportesC.reportesC_allcomputos',
+                    
+                ],
+                [
                     'text' => 'Reportes por dia',
-                    'route'  => 'admin.reportes.reporte_dia',
+                    'route'  => 'admin.reportesC.reporteC_dia',
                     
                 ],
                 [
                     'text' => 'Reportes por fecha',
-                    'route'  => 'admin.reportes.reportes_fecha',
+                    'route'  => 'admin.reportesC.reportesC_fecha',
+                    
+                ],
+                [
+                    'text' => 'Reportes por mes',
+                    'route'  => 'admin.reportesC.C_mes',
                     
                 ],
 
             ]
-        ]*/
+        ]
         
         
     ],

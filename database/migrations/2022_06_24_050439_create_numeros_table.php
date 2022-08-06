@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('numeros', function (Blueprint $table) {
             $table->engine="InnoDB";
             $table->bigIncrements('id');
-            $table->string('numero')->comment('Numero de insumo');
+            $table->string('numero')->unique()->comment('Numero de insumo');
             $table->timestamps();
         });
     }

@@ -10,7 +10,7 @@
         <div class="card-body">
         {!! Form::open(['route' => 'admin.licenciaturas.store']) !!}  
         @include('admin.licenciaturas.partials.form')  
-        {!! Form::submit('Crear licenciatura', ['class' => 'btn btn-primary']) !!}
+        {!! Form::submit('Actualizar licenciatura', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
         </div>
  </div>

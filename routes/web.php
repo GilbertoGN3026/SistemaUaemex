@@ -17,6 +17,9 @@ use App\Http\Controllers\Admin\VinsumoController;
 /*Route::get('vinsumo',[VinsumoController::class,'vinsumo'])->name('vinsumo');*/
 
 Route::get('',[ComputoController::class,'index'])->name('computos');
+Route::get('computos/index2',[ComputoController::class,'index2'])->name('computos.index2');
+
+
 Route::resource('computos',ComputoController::class)->names('computos');
 
 /*Route::get('/', function () {

@@ -23,6 +23,11 @@ class ComputoController extends Controller
         $computos=Computo::all();
         return view('computos.index',compact('computos'));
     }
+    public function index2()
+    {
+        $computos=Computo::all();
+        return view('computos.index2',compact('computos'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +55,7 @@ class ComputoController extends Controller
         request()->validate(Computo::$rules);
         $computo=Computo::create($request->all());
         
-        return redirect()->route('computos.create',$computo)->with('success', 'El insumo se creo con exito.');
+        return redirect()->route('computos.index',$computo)->with('success', 'Puedes ocupar la Copmutadora.');
     }
 
     /**
@@ -94,7 +99,7 @@ class ComputoController extends Controller
         $computo->update($request->all());
 
         return redirect()->route('computos.index',$computo)
-            ->with('success', 'Numero updated successfully');
+            ->with('success', 'El registro se actualizo con exito.');
     }
 
     /**
@@ -106,7 +111,7 @@ class ComputoController extends Controller
     public function destroy(Computo $computo)
     {
         $computo->delete();
-        return redirect()->route('computos.index')
-        ->with('success', 'El tipo se elimino con exito');;
+        return redirect()->route('computos.index2')
+        ->with('success', 'El registro se elimino con exito');;
     }
 }

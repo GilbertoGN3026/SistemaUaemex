@@ -79,31 +79,33 @@
        
   
 </nav>
- <div></div>
+ 
 <section class="d-flex justify-content-center">
-    <div class="card col-sm-6 p-3">
+    <div class="card col-sm-6 p-3" style=margin-top:20px;>
             <div class="mb-3">
             <h1>UAEMEX</h1>
              </div>
               <div class="mb-2">
 <div class="card">
                     <div class="card-header">
-                        <div >
-                            <span class="card-title">Show Insumo</span>
+                        <div class="float-left">
+                            <span class="card-title">Detalles de Registro</span>
                         </div>
-                        <div >
-                            <a class="btn btn-primary" href="{{ route('computos.index') }}"> Back</a>
+                        <div>
+                        <div class="float-right">
+                            <a class="btn btn-primary" href="{{ route('computos.index') }}"> Atras</a>
+                        </div>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>User Nombre:</strong>
+                            <strong>Solicitante:</strong>
                             {{ $computo->nombre_completo }}
                         </div>
                         <div class="form-group">
-                            <strong>Numero Cuenta:</strong>
+                            <strong>Numero de Cuenta:</strong>
                             {{ $computo->numero_cuenta }}
                         </div>
                         <div class="form-group">
@@ -115,7 +117,7 @@
                             {{ $computo->numero_eie }}
                         </div>
                         <div class="form-group">
-                            <strong>Licenciatura Id:</strong>
+                            <strong>Licenciatura:</strong>
                             {{ $computo->licenciatura->nombre_licenciatura }}
                         </div>
                         <div class="form-group">

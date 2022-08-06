@@ -28,19 +28,19 @@ var datas = <?php echo json_encode($datas)?>;
     type: 'column'
   },
         title: {
-            text: 'Nuenos registros de insumos'
+            text: 'Registros de solicitantes por mes "Equipo de Computo,Impresiones y Escaneo" '
         },
         subtitle: {
-            text: 'Insumos'
+            text: ''
         },
         xAxis: {
-            categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                'October', 'November', 'December'
+            categories: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre',
+                'Octubre', 'Noviembre', 'Diciembre'
             ]
         },
         yAxis: {
             title: {
-                text: 'Numero de insumos'
+                text: 'Número de registros'
             }
         },
         legend: {
@@ -90,19 +90,19 @@ var comp2 = <?php echo json_encode($comp2)?>;
     type: 'column'
   },
         title: {
-            text: 'Nuenos registros de insumos'
+            text: 'Tipo de Servicio'
         },
         subtitle: {
-            text: 'Insumos'
+            text: 'Registro de los solicitantes por tipo de Servicio'
         },
         xAxis: {
-            categories: ['Escaneo', 'Equipo de computo', 'Impresiones', 
+            categories: ['Equipo de computo','Escaneo', 'Impresiones', 
             ]
            
         },
         yAxis: {
             title: {
-                text: 'Numero de insumos'
+                text: 'Numero de registros'
             }
         },
         legend: {
@@ -116,7 +116,7 @@ var comp2 = <?php echo json_encode($comp2)?>;
             }
         },
         series: [{
-            name: 'Registros de insumos carrera de pisoclogia',
+            name: 'Registros de tipo de servicio',
              colorByPoint: true,
             data: comp2
             
@@ -140,66 +140,43 @@ var comp2 = <?php echo json_encode($comp2)?>;
 </script>
 <figure class="highcharts-figure">
   <div id="container3"></div>
-  <p class="highcharts-description">
-    Chart showing how an HTML table can be used as the data source for the
-    chart using the Highcharts data module. The chart is built by
-    referencing the existing HTML data table in the page. Several common
-    data source types are available, including CSV and Google Spreadsheet.
-  </p>
+  
   </figure>
 <script>
 var comp3 = <?php echo json_encode($comp3)?>;
  Highcharts.chart('container3', {
-  chart: {
-    type: 'area',
-    inverted: true
+    chart: {
+    type: 'column'
   },
-  title: {
-    text: 'Average fruit consumption during one week'
-  },
-  accessibility: {
-    keyboardNavigation: {
-      seriesNavigation: {
-        mode: 'serialize'
-      }
-    }
-  },
-  legend: {
-    layout: 'vertical',
-    align: 'right',
-    verticalAlign: 'top',
-    x: -150,
-    y: 100,
-    floating: true,
-    borderWidth: 1,
-    backgroundColor:
-      Highcharts.defaultOptions.legend.backgroundColor || '#FFFFFF'
-  },
-  xAxis: {
-    categories: [
-      'Psicologia',
-      'Educacion',
-      'Cultura Fisica y Deporte',
-      'Trabajo Social',
-      ]
-  },
-  yAxis: {
-    title: {
-      text: 'Number of units'
-    },
-    allowDecimals: false,
-    min: 0
-  },
-  plotOptions: {
-    area: {
-      fillOpacity: 0.5
-    }
-  },
+        title: {
+            text: 'Licenciaturas'
+        },
+        subtitle: {
+            text: 'Registro de los solicitantes de Equipo de Computo, Escaneo e Impresiones por carrera'
+        },
+        xAxis: {
+            categories: ['Psicología','Educación','Trabajo social','Cultura Física y Deporte','Otros',
+            ]
+        },
+        yAxis: {
+            title: {
+                text: 'Numero de registros'
+            }
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle'
+        },
+        plotOptions: {
+            series: {
+                allowPointSelect: true
+            }
+        },
         series: [{
-            name: 'Numero de insumos usados por tipo',
+            name: 'Solicitantes por Carrera',
              colorByPoint: true,
             data: comp3
-           
             
         }],
         responsive: {
@@ -217,38 +194,32 @@ var comp3 = <?php echo json_encode($comp3)?>;
             }]
         }
     });
-
 </script>
 
 <figure class="highcharts-figure">
   <div id="container4"></div>
-  <p class="highcharts-description">
-    Chart showing how an HTML table can be used as the data source for the
-    chart using the Highcharts data module. The chart is built by
-    referencing the existing HTML data table in the page. Several common
-    data source types are available, including CSV and Google Spreadsheet.
-  </p>
+ 
   </figure>
 <script>
-var datas1 = <?php echo json_encode($datas1)?>;
+var comp4 = <?php echo json_encode($comp4)?>;
  Highcharts.chart('container4', {
     chart: {
     type: 'column'
   },
         title: {
-            text: 'Nuenos registros de insumos'
+            text: 'Usuarios'
         },
         subtitle: {
-            text: 'Insumos'
+         text: 'Registro de los solicitantes de Equipo de Computo, Escaneo e Impresiones por usuario'
+
         },
         xAxis: {
-            categories: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
-                'October', 'November', 'December'
+            categories: ['Alumno','Administrativo','Externo'
             ]
         },
         yAxis: {
             title: {
-                text: 'Numero de insumos'
+                text: 'Numero de registros'
             }
         },
         legend: {
@@ -262,8 +233,8 @@ var datas1 = <?php echo json_encode($datas1)?>;
             }
         },
         series: [{
-            name: 'Registros de insumos',
-            data: datas1
+            name: 'Registros de tipos de usuarios',
+            data: comp4
         }],
         responsive: {
             rules: [{

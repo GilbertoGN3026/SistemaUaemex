@@ -4,18 +4,38 @@
 @section('content_header')
 
  
- <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.insumos.pdf_dia')}}">Exportar a PDF</a>
+ <a class="btn btn-secondary btn-sm float-right" href="{{route('admin.reportes.pdf_dia')}}">Exportar a PDF</a>
  
 <h1>Reporte de insumos por dia</h1>
 
 @stop
 
 @section('content')
+<!DOCTYPE html>
+<html lang="es">  
+<head>    
+    <title>Título de la WEB</title>    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     
+    <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+
+        <!-- Styles -->
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+        @livewireStyles
+
+        <!-- Scripts -->
+        <script src="{{ mix('js/app.js') }}" defer></script>  
+        
+</head>  
+<body>
  <div class="card">
 
     <div class="card-body">
-        
-        <table width="900px" class="table table-striped" >
+        <div class="table-responsive">
+        <table class="table table-striped" >
 
         <div class="row">
             <div class="col-12 col-md-4 text-center">
@@ -34,9 +54,9 @@
             </div>
        
 
-            <thead>
+             <thead class="thead-dark">
                 <tr>
-                    <th>ID</th>
+                   
                     <th>Solicitante</th>
                     <th>Numero de Cuenta</th>
                     <th>Aula</th>
@@ -57,7 +77,7 @@
             <tbody>
                 @foreach($insumos as $insumo)
                 <tr>
-                    <td>{{$insumo->id}}</td>
+                    
                     <td>{{$insumo->user_nombre}}</td>
                     <td>{{$insumo->numero_cuenta}}</td>
                     <td>{{$insumo->aula}}</td>
@@ -70,30 +90,6 @@
                     <td>{{$insumo->fecha_horaEnt}}</td>
                     <td>{{$insumo->conformidad}}</td>
                   
-                    
-                    
-
-                    <td width="3px">
-                    @can('admin.insumos.edit')
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.edit', $insumo)}}">Editar</a>
-                        @endcan
-                    </td>
-                     <td width="3px">
-                     
-                        <a class="btn btn-primary btn-sm" href="{{route('admin.insumos.show', $insumo)}}">Ver</a>
-                       
-                    </td>
-                    
-                    
-                    <td width="3px">
-                    @can('admin.insumos.destroy')
-                        <form action="{{route('admin.insumos.destroy', $insumo)}}" method="POST">
-                            @csrf
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                        </form>
-                        @endcan
-                    </td>
                 </tr>
 
                 @endforeach
@@ -101,5 +97,8 @@
         </table>
     </div>
 </div>
+</div>
 
+</body>
+</html>
 @stop
