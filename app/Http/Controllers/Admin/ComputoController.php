@@ -8,7 +8,7 @@ use App\Models\Computo;
 use App\Models\Servicio;
 use App\models\Usuar;
 use App\models\Licenciatura;
-
+use Session;
 
 
 class ComputoController extends Controller
@@ -25,7 +25,7 @@ class ComputoController extends Controller
     }
     public function index2()
     {
-        $computos=Computo::all();
+        $computos=Computo::paginate(10);
         return view('computos.index2',compact('computos'));
     }
 
@@ -54,8 +54,8 @@ class ComputoController extends Controller
     {
         request()->validate(Computo::$rules);
         $computo=Computo::create($request->all());
-        
-        return redirect()->route('computos.index',$computo)->with('success', 'Puedes ocupar la Copmutadora.');
+        Session::flash('mensaje', "$request->nombre_completo puedes ocupar la computadora");
+        return redirect()->route('computos.index',$computo);
     }
 
     /**

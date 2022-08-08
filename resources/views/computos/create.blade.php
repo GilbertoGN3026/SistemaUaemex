@@ -49,9 +49,7 @@
           <span class="sr-only">Open main menu</span>
           <!--
             Icon when menu is closed.
-
             Heroicon name: outline/menu
-
             Menu open: "hidden", Menu closed: "block"
           -->
           <svg class="block h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -59,9 +57,7 @@
           </svg>
           <!--
             Icon when menu is open.
-
             Heroicon name: outline/x
-
             Menu open: "block", Menu closed: "hidden"
           -->
           <svg class="hidden h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true">
@@ -96,6 +92,7 @@
 
 
 <section class="d-flex justify-content-center">
+
     <div class="card col-sm-6 p-3" >
             <div class="mb-3">
             <h1  class="d-flex justify-content-center">Universidad Autonoma del Estado de Mexico FACICO {{\Carbon\Carbon::now()->year}}A </h1>
@@ -103,20 +100,24 @@
               <div class="boton">
 
                     
-  <button class="btn btn-primary btn-sm" href="{{route('computos.index')}}">
- <i class="fa fa-arrow-left" ></i>atras
-  </button>
+  <a class="btn btn-sm" href="{{route('computos.index')}}">
+ <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" color="black" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+  <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+</svg>
+  </a>
              
               </div>
 
   <img class="imagen">
   <div class="card-body">
+  <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+            <div class="mb-12">
     <h5 class="card-title"></h5>
     {!! Form::open(['route' => 'computos.store']) !!}
         @include('computos.partials.form')
         <div class="row">
         <div class="col">
-      {!! Form::submit('Guardar', ['class' => 'btn btn-primary']) !!}
+      {!! Form::submit('Enviar', ['class' => 'btn btn-primary']) !!}
         {!! Form::close() !!}
     </div>
     <div class="col">
@@ -127,6 +128,8 @@
 </div>
 
         </div>
+        </div>
+          </div>
         </div>
 
 </body>

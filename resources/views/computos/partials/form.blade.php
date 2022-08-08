@@ -1,8 +1,5 @@
-
-                        
-                        
-        <section class="d-flex justify-content-center">
-        <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+  <section class="d-flex justify-content-center">
+        <div class="card col-sm-12 p-3" >
             <div class="mb-12">
           <div class="form-group">
             {{ Form::label('Nombre_completo') }}
@@ -13,7 +10,7 @@
               
         </section>
         <section class="d-flex justify-content-center" style= margin-top:10px;>
-        <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+        <div class="card col-sm-12 p-3" >
             <div class="mb-12">
         <div class="form-group">
             {{ Form::label('numero_cuenta') }}
@@ -25,7 +22,7 @@
               
         </section>
          <section class="d-flex justify-content-center" style= margin-top:10px;>
-        <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+        <div class="card col-sm-12 p-3" >
             <div class="mb-12">
         <div class="form-group">
             {{ Form::label('Tipo de servicio') }}
@@ -39,7 +36,7 @@
         </section>
                              
         <section class="d-flex justify-content-center" style= margin-top:10px;>
-        <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+        <div class="card col-sm-12 p-3" >
             <div class="mb-12">
         <div class="form-group">
             {{ Form::label('Numero de Equipo, Impresiones y Escaneo') }}
@@ -51,7 +48,7 @@
               
         </section>
          <section class="d-flex justify-content-center" style= margin-top:10px;>
-        <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+        <div class="card col-sm-12 p-3" >
             <div class="mb-12">
         <div class="form-group">
             {{ Form::label('Licenciatura') }}
@@ -63,7 +60,7 @@
               
         </section>
          <section class="d-flex justify-content-center" style= margin-top:10px;>
-        <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+        <div class="card col-sm-12 p-3" >
             <div class="mb-12">
         <div class="form-group">
             {{ Form::label('Usuario') }}
@@ -75,7 +72,7 @@
               
         </section>
         <section class="d-flex justify-content-center" style= margin-top:10px;>
-        <div class="card col-sm-12 p-3" style= background-color:#c7b75d;>
+        <div class="card col-sm-12 p-3" >
             <div class="mb-12">
         <div class="form-group">
             {{ Form::label('Sugerencias') }}
@@ -87,5 +84,3 @@
               
         </section>
        <h1></h1> 
-
-   

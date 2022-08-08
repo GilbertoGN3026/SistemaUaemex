@@ -8,6 +8,7 @@ use App\Models\Insumo;
 use App\Models\Tipo;
 use App\Models\Numero;
 use App\Models\Licenciatura;
+use Session;
 use Barryvdh\DomPDF\Facade\PDF;
 
 
@@ -28,7 +29,7 @@ class InsumoController extends Controller
     public function index()
 
     {
-        $insumos=Insumo::all();
+        $insumos=Insumo::paginate(10);
         return view('admin.insumos.index',compact('insumos'));
 
     }
@@ -59,7 +60,8 @@ class InsumoController extends Controller
     {
         request()->validate(Insumo::$rules);
         $insumo=Insumo::create($request->all());
-        return redirect()->route('admin.insumos.index',$insumo)->with('success', 'El insumo se creo con exito.');
+        Session::flash('mensaje', "$request->user_nombre puedes tomar tu insumo.");
+        return redirect()->route('admin.insumos.index',$insumo);
     }
 
     /**

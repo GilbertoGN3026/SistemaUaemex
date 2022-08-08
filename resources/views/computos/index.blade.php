@@ -121,6 +121,12 @@
 <h1></h1>
 
 <h1></h1>
+@if(Session::has('mensaje'))
+<div class="alert alert-success">
+    {{Session::get('mensaje')}}
+
+</div>
+@endif
   
 <div class="card">
   <div class="imagen2">
